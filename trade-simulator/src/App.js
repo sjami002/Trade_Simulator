@@ -102,7 +102,7 @@ class App extends Component {
         });
       });
 
-    fetch("http://localhost:3000/users/10")
+    fetch("http://localhost:3000/users/1")
       .then(res => res.json())
       .then(data => {
         this.setState({
