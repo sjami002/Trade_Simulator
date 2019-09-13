@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import AccountControlModule from "./AccountControlModule";
 import SearchBar from "./SearchBar";
-import logo from "./5852e3b6-d2c5-49f5-8669-1ac97b0e5519_200x200.png";
+import logo from "./f5083b0f-88d0-42fb-b60b-ec6db79462cb_200x200.png";
 
 class NavBar extends Component {
+  refreshPage = () => {
+    window.location.reload(false);
+  };
   render() {
     return (
       <div className="navbar">
         <div
           className="logo"
-          onClick={() => this.props.changeView("home")}
+          onClick={() => {
+            this.props.changeView("home");
+            this.refreshPage();
+          }}
           style={{ cursor: "pointer" }}
         >
           <img

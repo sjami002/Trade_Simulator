@@ -63,7 +63,7 @@ class Stock extends Component {
       .then(res => res.json())
       .then(data => this.props.handleBuy(data));
 
-    fetch("http://localhost:3000/users/10", {
+    fetch("http://localhost:3000/users/1", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -73,7 +73,7 @@ class Stock extends Component {
       })
     })
       .then(res => res.json())
-      .then(console.log);
+      .then(data => this.props.handleBudgetPatch(data));
 
     this.setState({
       success: true

@@ -28,7 +28,7 @@ class StockDisplayContainer extends Component {
                   key={stock.id}
                   user={this.props.user}
                   handleBuy={this.props.handleBuy}
-                  handleBudgetPatch={this.handleBudgetPatch}
+                  handleBudgetPatch={this.props.handleBudgetPatch}
                 />
               );
             })}

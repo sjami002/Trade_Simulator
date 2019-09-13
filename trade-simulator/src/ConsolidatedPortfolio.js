@@ -65,9 +65,9 @@ class ConsolidatedPortfolio extends Component {
       })
     })
       .then(res => res.json())
-      .then(console.log);
+      .then(data => this.setState({ quantity: data.quantity }));
 
-    fetch("http://localhost:3000/users/10", {
+    fetch("http://localhost:3000/users/1", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -77,7 +77,7 @@ class ConsolidatedPortfolio extends Component {
       })
     })
       .then(res => res.json())
-      .then(console.log);
+      .then(data => this.setState({ budget: data.budget }));
 
     this.setState({
       success: true

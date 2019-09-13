@@ -5,7 +5,7 @@ import MainContainer from "./MainContainer";
 import NewsContainer from "./NewsContainer";
 import UserDetails from "./UserDetails";
 import StockDisplayContainer from "./StockDisplayContainer";
-import { ActionCableConsumer } from "react-actioncable-provider";
+import { ActionCable } from "react-actioncable-provider";
 import "./App.css";
 
 class App extends Component {
@@ -45,7 +45,10 @@ class App extends Component {
   };
 
   handleBudgetPatch = newBudget => {
-    console.log("hola");
+    this.setState({
+      budget: newBudget.budget
+    });
+    console.log(newBudget.budget);
   };
 
   renderView = () => {
@@ -73,6 +76,7 @@ class App extends Component {
           <MainContainer
             user={this.state.user}
             transactions={this.state.transactions}
+            budget={this.state.budget}
           />
         );
       case "user":
@@ -80,6 +84,7 @@ class App extends Component {
           <UserDetails
             user={this.state.user}
             transactions={this.state.transactions}
+            budget={this.state.budget}
           />
         );
       case "news":
@@ -88,6 +93,7 @@ class App extends Component {
             user={this.state.user}
             stocks={this.state.stocks}
             transactions={this.state.transactions}
+            budget={this.state.budget}
           />
         );
     }
@@ -128,7 +134,7 @@ class App extends Component {
           handleSearchChange={this.handleSearchChange}
           searchTerm={this.state.searchTerm}
         />
-        <ActionCableConsumer
+        <ActionCable
           channel={{ channel: "StockChannel" }}
           onReceived={this.handleResponse}
         />

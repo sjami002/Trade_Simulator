@@ -99,6 +99,9 @@ class NewsContainer extends Component {
                   .toString()
                   .replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")}
               </Table.HeaderCell>
+              <Table.HeaderCell>
+                Wallet Value(if any transactions): {this.props.budget}
+              </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
         </Table>
